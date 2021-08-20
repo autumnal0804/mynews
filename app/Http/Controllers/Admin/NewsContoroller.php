@@ -10,7 +10,7 @@ class NewsContoroller extends Controller
     //
 public function add()
 {
-    returan view('admin.news.create');
+    return view('admin.news.create');
 }
 
 public function create()
@@ -18,7 +18,7 @@ public function create()
 　　return redirect('admin/profile/create');
 }
 
-　　public function edit()
+public function edit()
 {
 　　return view('admin.profile.edit');
 }

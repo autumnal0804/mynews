@@ -26,5 +26,9 @@ class profileController extends Controller
     public function update()
     {
         return redirect('admin/profile/edit');
-    }   //
+    }  
+    public function index()
+    {
+        return view('admin.profile.reset');
+    }
 }

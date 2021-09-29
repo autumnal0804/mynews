@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin',], function() {
     // ニュースのルーティング
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     Route::post('news/create','Admin\NewsController@create')->middleware('auth');
-    Route::get('news/index','Admin\NewsController@index')->middleware('auth');
+    Route::get('news','Admin\NewsController@index')->middleware('auth');
     Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth');
     Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth');
     Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
@@ -26,10 +26,10 @@ Route::group(['prefix' => 'admin',], function() {
 Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
     // プロフィールのルーティング
     Route::get('profile/create','Admin\ProfileController@add')->middleware('auth');
-    Route::post('profile/create','Admin\ProfileController@create');
+    Route::post('profile/create','Admin\ProfileController@create')->middleware('auth');
     Route::get('profile/edit','Admin\ProfileController@edit')->middleware('auth');
     Route::post('profile/edit','Admin\ProfileController@update')->middleware('auth');
-    Route::get('profile/index','Admin\ProfileController@index');
+    Route::get('profile/index','Admin\ProfileController@index')->middleware('auth');
 });
 
 
@@ -39,3 +39,5 @@ Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/','NewsController@index');
+

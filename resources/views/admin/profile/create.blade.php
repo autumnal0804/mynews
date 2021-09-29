@@ -9,7 +9,7 @@
                 <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
                 @if (count($errors) > 0)
                     <ul>
-                        @foreach($eroors->all() as $e)
+                        @foreach($errors->all() as $e)
                             <li>{{ $e }}</li>
                         @endforeach    
                     </ul>
@@ -17,7 +17,7 @@
                 <div class="form-group row">
                     <label class="col-md-2">氏名</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="your_name" value="{{ old('name') }}">
+                        <input type="text" class="form-control-file" name="name" value="{{ old('name') }}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -40,7 +40,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                            <p><input type="submit" class="form-control" value="送信する"></p>
+                        {{ csrf_field() }}
+                        <p><input type="submit" class="form-control" value="送信"></p>
                     </div>
                 </form>
             </div>
